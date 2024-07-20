@@ -13,12 +13,14 @@ import Features04 from '@/components/features-04'
 import Pricing from './pricing-section'
 import Testimonials from '@/components/testimonials'
 import Cta from '@/components/cta'
+import LogoWall from '@/components/logo-wall'
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Clients />
+      {/* <Clients /> */}
+      <LogoWall />
       <Features />
       <Features02 />
       <Features03 />
