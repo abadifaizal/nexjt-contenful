@@ -24,3 +24,38 @@ export type LogoWallQuery = {
     }[]
   }
 }
+
+export type HeaderNavQuery = {
+  navigationCollection: {
+    items: {
+      name: string;
+      linksCollection: {
+        items: {
+          link: string;
+          label: string;
+        }[]
+      }
+    }[]
+  }
+}
+
+export type CustomerPostQuery = {
+  customerPostCollection: {
+    items: {
+      title: string;
+      slug: string;
+      customer: {
+        logo: {
+          url: string;
+          width: number;
+          height: number;
+          title: string;
+        }
+        name: string;
+      }
+      body: {
+        json: JSON;
+      }
+    }[]
+  }
+}
