@@ -8,6 +8,11 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "overrides": {
+    "next-contentlayer": {
+      "next": "$next"
+    }
+  },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.22.7",
     "@headlessui/react": "^1.7.17",

@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import PostDate from '@/components/post-date'
-import { UpdateMdx } from '@/components/mdx/update-mdx'
 
 export default function PostItem({ ...props }) {
   return (
@@ -13,12 +12,11 @@ export default function PostItem({ ...props }) {
         </div>
         <div className="grow ml-8 md:ml-0 pb-12 group-last-of-type:pb-0 border-b [border-image:linear-gradient(to_right,theme(colors.slate.700/.3),theme(colors.slate.700),theme(colors.slate.700/.3))1] group-last-of-type:border-none">
           <header>
-            <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 leading-8 pb-6">{props.title}</h2>
+            <h2 className="pb-6 text-2xl font-bold leading-8 text-transparent bg-clip-text bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60">{props.title}</h2>
           </header>
-          <figure className="bg-gradient-to-b from-slate-300/20 to-transparent rounded-3xl p-px mb-8">
+          <figure className="p-px mb-8 bg-gradient-to-b from-slate-300/20 to-transparent rounded-3xl">
             <Image className="w-full rounded-[inherit]" src={props.image} width={574} height={326} alt={props.title} />
           </figure>
-          <UpdateMdx code={props.body.code} />
         </div>
       </div>
     </article>
