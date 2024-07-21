@@ -1,11 +1,12 @@
 import "server-only"
 import { contentGraphQLFetcher } from "./fetch";
 import { CustomerPostQuery, HeaderNavQuery, HeroQuery, LogoWallQuery } from "types"
+import { revalidateTag } from "next/cache";
 
-export const getContentForHero = async() => {
+export const getContentForHero = async(isDraft = false) => {
   const query = `#graphql 
   query HeroCollection {
-    heroCollection {
+    heroCollection(preview: ${isDraft ? "true" : "false"}) {
       items {
         title
         subtitle
@@ -21,11 +22,13 @@ export const getContentForHero = async() => {
   }
   `
 
-  const data = await contentGraphQLFetcher<HeroQuery>({query});
+  const data = await contentGraphQLFetcher<HeroQuery>({query, preview: isDraft, tags: ['hero']});
 
   if(!data) {
     throw new Error('Failed to fetch Hero API');
   }
+
+  revalidateTag('hero');
 
   return data;
 }
@@ -119,6 +122,26 @@ export const getContentForCustomerPost = async(slug: string) => {
 
   if(!data) {
     throw new Error('Failed to fetch Customer Post API');
+  }
+
+  return data;
+}
+
+export const getSlugsForPosts = async() => {
+  const query = `#graphql
+    {
+      customerPostCollection {
+        items {
+          slug
+        }
+      }
+    }
+  `
+
+  const data = await contentGraphQLFetcher<{customerPostCollection:{items:{slug:string}[]}}>({query});
+
+  if(!data) {
+    throw new Error('Failed to fetch Customer Post slugs API');
   }
 
   return data;
