@@ -8,11 +8,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "overrides": {
-    "next-contentlayer": {
-      "next": "$next"
-    }
-  },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.22.7",
     "@headlessui/react": "^1.7.17",
@@ -20,10 +15,8 @@
     "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.17",
     "aos": "^3.0.0-beta.6",
-    "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
     "next": "^14.0.3",
-    "next-contentlayer": "^0.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "swiper": "^8.4.7",
