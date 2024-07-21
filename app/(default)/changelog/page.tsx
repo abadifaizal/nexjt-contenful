@@ -3,7 +3,7 @@ export const metadata = {
   description: 'Page description',
 }
 
-import { allUpdates } from 'contentlayer/generated'
+import { allUpdates } from '@/contentlayer/generated'
 import Image from 'next/image'
 import Illustration from '@/public/images/page-illustration.svg'
 import PostItem from './post-item'
@@ -34,16 +34,16 @@ export default function Changelog() {
         </div>
 
         {/* Illustration */}
-        <div className="md:block absolute left-1/2 -translate-x-1/2 -mt-16 blur-2xl opacity-90 pointer-events-none -z-10" aria-hidden="true">
+        <div className="absolute -mt-16 -translate-x-1/2 pointer-events-none md:block left-1/2 blur-2xl opacity-90 -z-10" aria-hidden="true">
           <Image src={Illustration} className="max-w-none" width={1440} height={427} alt="Page Illustration" />
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="max-w-6xl px-4 mx-auto sm:px-6">
           <div className="pt-32 pb-12 md:pt-40 md:pb-20">
 
             {/* Page header */}
-            <div className="text-center pb-12 md:pb-20">
-              <h1 className="h1 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">What's New</h1>
+            <div className="pb-12 text-center md:pb-20">
+              <h1 className="pb-4 text-transparent h1 bg-clip-text bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60">What's New</h1>
               <div className="max-w-3xl mx-auto">
                 <p className="text-lg text-slate-400">New updates and improvements to Stellar.</p>
               </div>
@@ -61,11 +61,11 @@ export default function Changelog() {
 
             {/* Pagination */}
             <div className="max-w-3xl mx-auto">
-              <ul className="flex items-center justify-between mt-12 pl-8 md:pl-48">
+              <ul className="flex items-center justify-between pl-8 mt-12 md:pl-48">
                 <li>
                   <span className="btn-sm text-slate-700 transition duration-150 ease-in-out group [background:linear-gradient(theme(colors.slate.900),_theme(colors.slate.900))_padding-box,_conic-gradient(theme(colors.slate.400),_theme(colors.slate.700)_25%,_theme(colors.slate.700)_75%,_theme(colors.slate.400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-full before:pointer-events-none cursor-not-allowed">
                     <span className="relative inline-flex items-center">
-                      <span className="tracking-normal text-slate-700 mr-1">&lt;-</span> Previous Page
+                      <span className="mr-1 tracking-normal text-slate-700">&lt;-</span> Previous Page
                     </span>
                   </span>
                 </li>
